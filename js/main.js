@@ -51,22 +51,18 @@ const teamList = [
 //2. print teamList
 //2.1 refs
 const teamContainer = document.querySelector('.team-container');
+const nameMember = document.getElementById('name');
+const role = document.getElementById('role');
+const image = document.getElementById('image');
 
 //2.2 call genTeamList function
 genTeamList(teamList, teamContainer);
 
 //3 make form input dinamic to add new members
-//3.1 refs
+//3.1 refs + add click event for adding new member on button
 const btnAddMember = document.getElementById('addMemberButton');
 btnAddMember.addEventListener('click', () => {
-    const nameInput = document.getElementById('name').value;
-    const roleInput = document.getElementById('role').value;
-    const imageSrcInput = document.getElementById('image').value;
-    //3.2 call genNewMember
-    teamList.push(genNewMember(nameInput, roleInput, imageSrcInput));
-    //3.3 update teamList in HTML
-    genTeamList(teamList, teamContainer);
-    console.table(teamList);
+    addNewMember (nameMember, role, image);
 })
 
 
@@ -99,12 +95,23 @@ function genTeamList (nameList, nodeContainer) {
 }
 
 
-//2. funzione per generare nuovo oggetto (nuovo membro del team)
+//2. define function to generate a new member)
 function genNewMember (name, role, img) {
     const newMember = {
         nameMember: `${name}`,
         role: `${role}`,
         imgSrc: `${img}`,
-    };    
+    };
     return newMember;
+}
+
+//3. define function to add a new member to memberList and update the list
+function addNewMember (name, role, image) {
+    teamList.push(genNewMember(name.value, role.value, image.value));
+    //3.3 update teamList in HTML
+    genTeamList(teamList, teamContainer);
+    console.table(teamList);
+    name.value = '';
+    role.value = '';
+    image.value = '';
 }

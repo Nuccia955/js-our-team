@@ -48,13 +48,40 @@ const teamList = [
     },
 ];
 
+//2. print teamList
+//2.1 refs
+const teamContainer = document.querySelector('.team-container');
+
+//2.2 call genTeamList function
+genTeamList(teamList, teamContainer);
 
 
 
 /***********
  * FUNZIONI
  * *********/
-//1. funzione per generare le card
+//1. define function to generate teamList
+function genTeamList (nameList, nodeContainer) {
+    nodeContainer.innerHTML = '';
+    for (let i = 0; i < nameList.length; i++) {
+        const teamMember = nameList[i];
+        console.log(teamMember);
+        nodeContainer.innerHTML += `
+        <div class="team-card">
+            <div class="card-image">
+              <img
+                src="${teamMember.imgSrc}"
+                alt="${teamMember.nameMember}"
+              />
+            </div>
+            <div class="card-text">
+              <h3>${teamMember.nameMember}</h3>
+              <p>${teamMember.role}</p>
+            </div>
+          </div>`;
+    }
+    return nodeContainer;
+}
 
 
 //2. funzione per generare nuovo oggetto (nuovo membro del team)

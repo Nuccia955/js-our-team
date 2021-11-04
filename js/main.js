@@ -107,11 +107,16 @@ function genNewMember (name, role, img) {
 
 //3. define function to add a new member to memberList and update the list
 function addNewMember (name, role, image) {
-    teamList.push(genNewMember(name.value, role.value, image.value));
-    //3.3 update teamList in HTML
-    genTeamList(teamList, teamContainer);
-    console.table(teamList);
-    name.value = '';
-    role.value = '';
-    image.value = '';
+    if (name.value !== '' && role.value !== '' && image.value !== '') {
+        teamList.push(genNewMember(name.value, role.value, image.value));
+        //3.3 update teamList in HTML
+        genTeamList(teamList, teamContainer);
+        console.table(teamList);
+        name.value = '';
+        role.value = '';
+        image.value = '';
+    } else {
+        alert('Completa tutti i campi!');
+    }
+    return;
 }

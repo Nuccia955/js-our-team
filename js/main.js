@@ -14,6 +14,40 @@
   -inserisci oggetto nell'array 
 */
 
+//1. create the array of team members
+const teamList = [
+    {
+        nameMember: 'Wayne Barnett',
+        role: 'Founder & CEO',
+        imgSrc: 'img/wayne-barnett-founder-ceo.jpg',
+    },
+    {
+        nameMember: 'Angela Caroll',
+        role: 'Chief Editor',
+        imgSrc: 'img/angela-caroll-chief-editor.jpg',
+    },
+    {
+        nameMember: 'Walter Gordon',
+        role: 'Office Manager',
+        imgSrc: 'img/walter-gordon-office-manager.jpg',
+    },
+    {
+        nameMember: 'Angela Lopez',
+        role: 'Social Media manager',
+        imgSrc: 'img/angela-lopez-social-media-manager.jpg',
+    },
+    {
+        nameMember: 'Scott Estrada',
+        role: 'Developer',
+        imgSrc: 'img/scott-estrada-developer.jpg',
+    },
+    {
+        nameMember: 'Barbara Ramos',
+        role: 'Graphic Designer',
+        imgSrc: 'img/barbara-ramos-graphic-designer.jpg',
+    },
+];
+
 
 
 

@@ -55,6 +55,22 @@ const teamContainer = document.querySelector('.team-container');
 //2.2 call genTeamList function
 genTeamList(teamList, teamContainer);
 
+//3 make form input dinamic to add new members
+//3.1 refs
+const btnAddMember = document.getElementById('addMemberButton');
+btnAddMember.addEventListener('click', () => {
+    const nameInput = document.getElementById('name').value;
+    const roleInput = document.getElementById('role').value;
+    const imageSrcInput = document.getElementById('image').value;
+    //3.2 call genNewMember
+    teamList.push(genNewMember(nameInput, roleInput, imageSrcInput));
+    //3.3 update teamList in HTML
+    genTeamList(teamList, teamContainer);
+    console.table(teamList);
+})
+
+
+
 
 
 /***********
@@ -65,7 +81,6 @@ function genTeamList (nameList, nodeContainer) {
     nodeContainer.innerHTML = '';
     for (let i = 0; i < nameList.length; i++) {
         const teamMember = nameList[i];
-        console.log(teamMember);
         nodeContainer.innerHTML += `
         <div class="team-card">
             <div class="card-image">
@@ -85,3 +100,11 @@ function genTeamList (nameList, nodeContainer) {
 
 
 //2. funzione per generare nuovo oggetto (nuovo membro del team)
+function genNewMember (name, role, img) {
+    const newMember = {
+        nameMember: `${name}`,
+        role: `${role}`,
+        imgSrc: `${img}`,
+    };    
+    return newMember;
+}
